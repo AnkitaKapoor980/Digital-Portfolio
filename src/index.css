@@ -2,41 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* AI-Enhanced Data Science Portfolio Design System */
 
 @layer base {
   :root {
+    /* Data Science Gradient Theme - Blue to Orange/Pink */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 30% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 30% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 30% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Deep Blue for trust and intelligence */
+    --primary: 220 80% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 220 70% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Warm Orange for innovation */
+    --secondary: 25 90% 65%;
+    --secondary-foreground: 220 30% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent: Purple for AI/ML theme */
+    --accent: 260 70% 60%;
+    --accent-foreground: 0 0% 98%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 45%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 20% 90%;
+    --input: 220 20% 95%;
+    --ring: 220 80% 25%;
 
-    --radius: 0.5rem;
+    --radius: 12px;
+
+    /* Data Science Specific Colors */
+    --data-blue: 220 80% 50%;
+    --data-purple: 260 70% 60%;
+    --data-orange: 25 90% 65%;
+    --data-pink: 340 75% 65%;
+    --data-teal: 180 70% 50%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 80% 25%) 0%, hsl(260 70% 60%) 50%, hsl(25 90% 65%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 15% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(260 70% 60%) 0%, hsl(340 75% 65%) 100%);
+    --gradient-data: linear-gradient(90deg, hsl(220 80% 50%) 0%, hsl(180 70% 50%) 50%, hsl(25 90% 65%) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(220 80% 25% / 0.15);
+    --shadow-card: 0 4px 20px hsl(220 30% 10% / 0.08);
+    --shadow-hero: 0 25px 50px hsl(220 80% 25% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +125,158 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
+}
+
+@layer components {
+  /* Hero Components */
+  .hero-section {
+    background: var(--gradient-hero);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="0.5" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.1"/></svg>');
+    animation: float 20s ease-in-out infinite;
+  }
+
+  /* Glass Effect Cards */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Data Visualization Elements */
+  .data-viz-bg {
+    background: var(--gradient-data);
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  /* Skill Progress Bars */
+  .skill-bar {
+    background: var(--gradient-accent);
+    height: 6px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: skill-shine 2s ease-in-out infinite;
+  }
+
+  /* Project Cards */
+  .project-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  .project-card:hover::before {
+    left: 100%;
+  }
+
+  .project-card:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* AI Chatbot */
+  .chatbot-container {
+    background: var(--gradient-accent);
+    border-radius: var(--radius);
+    backdrop-filter: blur(20px);
+  }
+
+  /* Text Gradients */
+  .gradient-text {
+    background: var(--gradient-hero);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+  }
+
+  /* Floating Animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-animation:nth-child(2) {
+    animation-delay: -2s;
+  }
+
+  .float-animation:nth-child(3) {
+    animation-delay: -4s;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes skill-shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 50% { border-color: transparent; }
+  51%, 100% { border-color: hsl(var(--primary)); }
 }
