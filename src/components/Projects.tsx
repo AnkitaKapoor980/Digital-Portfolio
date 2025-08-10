@@ -6,6 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Github, ExternalLink, Search, TrendingUp, Brain, BarChart3, Car } from "lucide-react";
 import { useState } from "react";
 
+// Import project images
+import financialDashboard from "@/assets/financial-dashboard.jpg";
+import aiCodeReview from "@/assets/ai-code-review.jpg";
+import mlPortfolio from "@/assets/ml-portfolio.jpg";
+import trafficSystem from "@/assets/traffic-system.jpg";
+
 const Projects = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -19,6 +25,7 @@ const Projects = () => {
       category: "Machine Learning",
       githubUrl: "https://github.com/AnkitaKapoor980",
       liveUrl: "#",
+      imageUrl: financialDashboard,
       imageGradient: "from-green-400 to-blue-500",
       details: {
         problem: "Financial markets are highly volatile and predicting risk is crucial for trading decisions.",
@@ -36,6 +43,7 @@ const Projects = () => {
       category: "AI/NLP",
       githubUrl: "https://github.com/AnkitaKapoor980",
       liveUrl: "#",
+      imageUrl: aiCodeReview,
       imageGradient: "from-purple-400 to-pink-500",
       details: {
         problem: "Manual code reviews are time-consuming and may miss security vulnerabilities.",
@@ -53,6 +61,7 @@ const Projects = () => {
       category: "Data Science",
       githubUrl: "https://github.com/AnkitaKapoor980",
       liveUrl: "#",
+      imageUrl: mlPortfolio,
       imageGradient: "from-blue-400 to-indigo-500",
       details: {
         problem: "Demonstrating versatility across different ML domains and problem types.",
@@ -70,6 +79,7 @@ const Projects = () => {
       category: "Reinforcement Learning",
       githubUrl: "https://github.com/AnkitaKapoor980",
       liveUrl: "#",
+      imageUrl: trafficSystem,
       imageGradient: "from-orange-400 to-red-500",
       details: {
         problem: "Traffic management in urban areas requires coordinated decision-making across multiple controllers.",
@@ -127,21 +137,55 @@ const Projects = () => {
               viewport={{ once: true }}
             >
               <Card className="project-card h-full overflow-hidden group">
-                {/* Project Header with Gradient */}
-                <div className={`bg-gradient-to-br ${project.imageGradient} p-6 text-white relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20"></div>
-                  <div className="relative z-10 flex items-start justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
-                        {project.icon}
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold mb-1">{project.title}</h3>
-                        <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-                          {project.category}
-                        </Badge>
-                      </div>
-                    </div>
+                {/* Project Image Header */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={project.imageUrl} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.imageGradient} opacity-80`}></div>
+                  <div className="absolute inset-0 bg-black/30"></div>
+                  
+                  {/* Floating project icon */}
+                  <motion.div
+                    className="absolute top-4 right-4 p-3 bg-white/20 rounded-xl backdrop-blur-sm border border-white/30"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
+                    {project.icon}
+                  </motion.div>
+                  
+                  {/* Project title overlay */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-xl font-bold text-white mb-2 drop-shadow-lg">{project.title}</h3>
+                    <Badge variant="secondary" className="bg-white/20 text-white border-white/30 backdrop-blur-sm">
+                      {project.category}
+                    </Badge>
+                  </div>
+                  
+                  {/* Animated particles */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    {[...Array(6)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 bg-white rounded-full opacity-60"
+                        animate={{
+                          x: [Math.random() * 100, Math.random() * 100, Math.random() * 100],
+                          y: [Math.random() * 100, Math.random() * 100, Math.random() * 100],
+                        }}
+                        transition={{
+                          duration: 8 + Math.random() * 4,
+                          repeat: Infinity,
+                          ease: "linear",
+                          delay: i * 0.5
+                        }}
+                        style={{
+                          left: `${Math.random() * 100}%`,
+                          top: `${Math.random() * 100}%`,
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
 

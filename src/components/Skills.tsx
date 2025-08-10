@@ -8,46 +8,46 @@ const Skills = () => {
       title: "Programming Languages",
       icon: "💻",
       skills: [
-        { name: "Python", level: 90, color: "from-blue-500 to-green-500" },
-        { name: "SQL", level: 85, color: "from-purple-500 to-pink-500" },
-        { name: "R", level: 80, color: "from-indigo-500 to-blue-500" },
-        { name: "JavaScript", level: 75, color: "from-yellow-500 to-orange-500" },
+        { name: "Python" },
+        { name: "SQL" },
+        { name: "R" },
+        { name: "JavaScript" },
       ]
     },
     {
       title: "Data Analysis Tools",
       icon: "📊",
       skills: [
-        { name: "Pandas", level: 90, color: "from-green-500 to-blue-500" },
-        { name: "NumPy", level: 85, color: "from-blue-500 to-indigo-500" },
-        { name: "Matplotlib", level: 85, color: "from-purple-500 to-pink-500" },
-        { name: "Seaborn", level: 80, color: "from-pink-500 to-red-500" },
-        { name: "PowerBI", level: 75, color: "from-yellow-500 to-orange-500" },
-        { name: "Excel", level: 85, color: "from-green-500 to-teal-500" },
+        { name: "Pandas" },
+        { name: "NumPy" },
+        { name: "Matplotlib" },
+        { name: "Seaborn" },
+        { name: "PowerBI" },
+        { name: "Excel" },
       ]
     },
     {
       title: "Machine Learning & AI",
       icon: "🤖",
       skills: [
-        { name: "Scikit-learn", level: 85, color: "from-orange-500 to-red-500" },
-        { name: "TensorFlow", level: 80, color: "from-blue-500 to-purple-500" },
-        { name: "Deep Learning", level: 80, color: "from-purple-500 to-indigo-500" },
-        { name: "OpenAI GPT-4", level: 85, color: "from-green-500 to-blue-500" },
-        { name: "LangChain", level: 75, color: "from-indigo-500 to-purple-500" },
-        { name: "Time Series", level: 85, color: "from-pink-500 to-orange-500" },
+        { name: "Scikit-learn" },
+        { name: "TensorFlow" },
+        { name: "Deep Learning" },
+        { name: "OpenAI GPT-4" },
+        { name: "LangChain" },
+        { name: "Time Series" },
       ]
     },
     {
       title: "Technologies & Tools",
       icon: "🛠️",
       skills: [
-        { name: "Git", level: 85, color: "from-gray-600 to-gray-800" },
-        { name: "Docker", level: 80, color: "from-blue-500 to-cyan-500" },
-        { name: "Jenkins", level: 75, color: "from-red-500 to-orange-500" },
-        { name: "Jupyter", level: 90, color: "from-orange-500 to-yellow-500" },
-        { name: "MySQL", level: 80, color: "from-blue-500 to-indigo-500" },
-        { name: "MongoDB", level: 75, color: "from-green-500 to-teal-500" },
+        { name: "Git" },
+        { name: "Docker" },
+        { name: "Jenkins" },
+        { name: "Jupyter" },
+        { name: "MySQL" },
+        { name: "MongoDB" },
       ]
     }
   ];
@@ -100,38 +100,13 @@ const Skills = () => {
                       viewport={{ once: true }}
                       className="space-y-2"
                     >
-                      <div className="flex justify-between items-center">
-                        <span className="font-medium text-foreground">
-                          {skill.name}
-                        </span>
-                        <Badge variant="secondary" className="text-xs">
-                          {skill.level}%
-                        </Badge>
-                      </div>
-                      
-                      <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ 
-                            duration: 1.2, 
-                            delay: (categoryIndex * 0.1) + (skillIndex * 0.05) + 0.3,
-                            ease: "easeOut"
-                          }}
-                          viewport={{ once: true }}
-                          className={`h-full bg-gradient-to-r ${skill.color} relative overflow-hidden`}
+                      <div className="flex justify-center">
+                        <Badge 
+                          variant="secondary" 
+                          className="bg-gradient-to-r from-primary/10 to-accent/10 text-foreground border-primary/20 hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20 transition-all duration-300"
                         >
-                          <motion.div
-                            animate={{ x: ['-100%', '100%'] }}
-                            transition={{ 
-                              duration: 2, 
-                              repeat: Infinity, 
-                              ease: "linear",
-                              delay: (categoryIndex * 0.2) + (skillIndex * 0.1)
-                            }}
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                          />
-                        </motion.div>
+                          {skill.name}
+                        </Badge>
                       </div>
                     </motion.div>
                   ))}

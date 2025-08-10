@@ -5,10 +5,12 @@ import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import AIChat from "@/components/AIChat";
+import CursorRipple from "@/components/CursorRipple";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <CursorRipple />
       <Navigation />
       <main>
         <section id="home">
