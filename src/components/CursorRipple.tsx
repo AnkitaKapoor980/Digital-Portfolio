@@ -75,55 +75,77 @@ const CursorRipple = () => {
             }}
             className="absolute"
             style={{
-              left: ripple.x - 50,
-              top: ripple.y - 50,
+              left: ripple.x - 75,
+              top: ripple.y - 75,
             }}
           >
-            {/* Main water ripple */}
+            {/* Main water ripple with realistic wave effect */}
             <div 
-              className="w-24 h-24 rounded-full border-2 border-primary/30"
+              className="w-36 h-36 rounded-full"
               style={{
+                border: `2px solid rgba(255, 255, 255, 0.3)`,
                 background: `radial-gradient(circle, 
-                  hsl(var(--primary) / 0.1) 0%, 
-                  hsl(var(--accent) / 0.05) 30%, 
+                  rgba(255, 255, 255, 0.05) 0%, 
+                  rgba(255, 255, 255, 0.02) 30%, 
                   transparent 70%
-                )`
+                )`,
+                boxShadow: `
+                  0 0 20px rgba(255, 255, 255, 0.1),
+                  inset 0 0 20px rgba(255, 255, 255, 0.05)
+                `
               }}
             />
             
-            {/* Secondary ripple rings */}
-            <motion.div
-              initial={{ scale: 0, opacity: 0.6 }}
-              animate={{ 
-                scale: [0, 0.8, 1.2, 1.8],
-                opacity: [0.6, 0.4, 0.2, 0]
-              }}
-              transition={{ 
-                duration: 2,
-                delay: 0.1,
-                ease: "easeOut"
-              }}
-              className="absolute inset-0 w-24 h-24 rounded-full border border-accent/20"
-            />
-            
-            {/* Inner glow */}
+            {/* Multiple ripple rings for realistic water effect */}
             <motion.div
               initial={{ scale: 0, opacity: 0.8 }}
               animate={{ 
-                scale: [0, 0.5, 0.8, 1],
-                opacity: [0.8, 0.6, 0.3, 0]
+                scale: [0, 0.6, 1.0, 1.6],
+                opacity: [0.8, 0.5, 0.3, 0]
               }}
               transition={{ 
-                duration: 1.5,
+                duration: 2.5,
+                delay: 0.1,
                 ease: "easeOut"
               }}
-              className="absolute inset-4 w-16 h-16 rounded-full"
+              className="absolute inset-3 rounded-full border-2"
+              style={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
+            />
+            
+            <motion.div
+              initial={{ scale: 0, opacity: 0.6 }}
+              animate={{ 
+                scale: [0, 0.4, 0.7, 1.2],
+                opacity: [0.6, 0.4, 0.2, 0]
+              }}
+              transition={{ 
+                duration: 2.8,
+                delay: 0.2,
+                ease: "easeOut"
+              }}
+              className="absolute inset-6 rounded-full border"
+              style={{ borderColor: 'rgba(255, 255, 255, 0.15)' }}
+            />
+            
+            {/* Central splash effect */}
+            <motion.div
+              initial={{ scale: 0, opacity: 1 }}
+              animate={{ 
+                scale: [0, 0.3, 0.5, 0.8],
+                opacity: [1, 0.8, 0.4, 0]
+              }}
+              transition={{ 
+                duration: 1.8,
+                ease: "easeOut"
+              }}
+              className="absolute inset-12 rounded-full"
               style={{
                 background: `radial-gradient(circle, 
-                  hsl(var(--primary) / 0.2) 0%, 
-                  hsl(var(--secondary) / 0.1) 50%, 
+                  rgba(255, 255, 255, 0.3) 0%, 
+                  rgba(255, 255, 255, 0.1) 50%, 
                   transparent 100%
-                )`
+                )`,
+                boxShadow: '0 0 15px rgba(255, 255, 255, 0.2)'
               }}
             />
           </motion.div>

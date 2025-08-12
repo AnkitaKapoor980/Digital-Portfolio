@@ -3,21 +3,25 @@ import { motion } from "framer-motion";
 const WaterBackground = () => {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
-      {/* Animated water-like gradient background */}
+      {/* Main gradient background using user's image */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url('/lovable-uploads/031708a2-5c29-45a2-9522-7b9a820ec953.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      
+      {/* Animated overlay for depth */}
       <motion.div
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 40% 80%, hsl(var(--secondary) / 0.06) 0%, transparent 50%),
-            linear-gradient(135deg, 
-              hsl(var(--background)) 0%, 
-              hsl(var(--primary) / 0.02) 25%, 
-              hsl(var(--accent) / 0.03) 50%, 
-              hsl(var(--secondary) / 0.02) 75%, 
-              hsl(var(--background)) 100%
-            )
+            radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255,255,255,0.03) 0%, transparent 50%),
+            radial-gradient(circle at 40% 80%, rgba(255,255,255,0.04) 0%, transparent 50%)
           `
         }}
         animate={{
@@ -36,52 +40,54 @@ const WaterBackground = () => {
       />
       
       {/* Floating particles */}
-      {Array.from({ length: 15 }, (_, i) => (
+      {Array.from({ length: 25 }, (_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 rounded-full"
+          className="absolute rounded-full"
           style={{
-            background: `hsl(var(--primary) / 0.1)`,
+            width: `${2 + Math.random() * 3}px`,
+            height: `${2 + Math.random() * 3}px`,
+            background: `rgba(255, 255, 255, ${0.1 + Math.random() * 0.2})`,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: [0, -30, 0],
-            x: [0, Math.random() * 40 - 20, 0],
-            opacity: [0.1, 0.3, 0.1],
-            scale: [1, 1.2, 1]
+            y: [0, -40 - Math.random() * 30, 0],
+            x: [0, Math.random() * 60 - 30, 0],
+            opacity: [0.1, 0.4, 0.1],
+            scale: [1, 1.2 + Math.random() * 0.3, 1]
           }}
           transition={{
-            duration: 6 + Math.random() * 4,
+            duration: 6 + Math.random() * 6,
             repeat: Infinity,
-            delay: Math.random() * 3,
+            delay: Math.random() * 4,
             ease: "easeInOut"
           }}
         />
       ))}
       
       {/* Larger floating orbs */}
-      {Array.from({ length: 5 }, (_, i) => (
+      {Array.from({ length: 8 }, (_, i) => (
         <motion.div
           key={`orb-${i}`}
           className="absolute rounded-full"
           style={{
-            width: `${20 + Math.random() * 40}px`,
-            height: `${20 + Math.random() * 40}px`,
-            background: `radial-gradient(circle, hsl(var(--accent) / 0.08) 0%, transparent 70%)`,
+            width: `${30 + Math.random() * 50}px`,
+            height: `${30 + Math.random() * 50}px`,
+            background: `radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%)`,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: [0, -60, 0],
-            x: [0, Math.random() * 80 - 40, 0],
-            opacity: [0.05, 0.15, 0.05],
-            scale: [1, 1.3, 1]
+            y: [0, -80 - Math.random() * 40, 0],
+            x: [0, Math.random() * 100 - 50, 0],
+            opacity: [0.05, 0.2, 0.05],
+            scale: [1, 1.4 + Math.random() * 0.3, 1]
           }}
           transition={{
-            duration: 12 + Math.random() * 8,
+            duration: 15 + Math.random() * 10,
             repeat: Infinity,
-            delay: Math.random() * 5,
+            delay: Math.random() * 6,
             ease: "easeInOut"
           }}
         />
