@@ -6,10 +6,12 @@ import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import AIChat from "@/components/AIChat";
 import CursorRipple from "@/components/CursorRipple";
+import WaterBackground from "@/components/WaterBackground";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <WaterBackground />
       <CursorRipple />
       <Navigation />
       <main>

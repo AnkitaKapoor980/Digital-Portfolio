@@ -25,10 +25,31 @@ const CursorRipple = () => {
     }, 2000);
   }, []);
 
+  const createMoveRipple = useCallback((e: MouseEvent) => {
+    // Throttle mouse move ripples
+    if (Math.random() > 0.95) { // Only create ripple 5% of the time on mouse move
+      const newRipple: Ripple = {
+        id: Date.now(),
+        x: e.clientX,
+        y: e.clientY,
+      };
+
+      setRipples(prev => [...prev, newRipple]);
+
+      setTimeout(() => {
+        setRipples(prev => prev.filter(ripple => ripple.id !== newRipple.id));
+      }, 1500);
+    }
+  }, []);
+
   useEffect(() => {
     document.addEventListener('click', createRipple);
-    return () => document.removeEventListener('click', createRipple);
-  }, [createRipple]);
+    document.addEventListener('mousemove', createMoveRipple);
+    return () => {
+      document.removeEventListener('click', createRipple);
+      document.removeEventListener('mousemove', createMoveRipple);
+    };
+  }, [createRipple, createMoveRipple]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-50">
