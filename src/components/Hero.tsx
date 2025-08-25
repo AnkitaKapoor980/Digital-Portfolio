@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download, ChevronDown } from "lucide-react";
+import TalkingAvatar from "@/components/TalkingAvatar";
 
 const Hero = () => {
   return (
@@ -93,7 +94,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right Column - Profile Image with Unique Animation */}
+        {/* Right Column - Talking AI Avatar */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -101,7 +102,7 @@ const Hero = () => {
           className="flex justify-center relative"
         >
           <div className="relative group">
-            {/* Hexagonal Frame */}
+            {/* Hexagonal Frame Background */}
             <div className="relative w-80 h-80 flex items-center justify-center">
               {/* Animated Hexagon Border */}
               <motion.div
@@ -134,24 +135,10 @@ const Hero = () => {
                 />
               </motion.div>
 
-              {/* Profile Image */}
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
-                className="relative z-10 w-72 h-72 rounded-full overflow-hidden border-4 border-white/20 backdrop-blur-sm"
-                style={{
-                  background: 'linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1))'
-                }}
-              >
-                <img
-                  src="/lovable-uploads/1d23d4ef-57f5-4828-8428-fa6fd4d819a4.png"
-                  alt="Ankita Kapoor - Data Scientist"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                
-                {/* Overlay gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </motion.div>
+              {/* Talking Avatar Component */}
+              <div className="relative z-10">
+                <TalkingAvatar autoStart={true} />
+              </div>
             </div>
 
             {/* Floating Data Particles */}
