@@ -45,7 +45,7 @@ const Experience = () => {
       degree: "X, Parmarth International School (CBSE)",
       institution: "Parmarth International School",
       duration: "2020",
-      cgpa: "92%"
+      cgpa: "93.6%"
     }
   ];
 
