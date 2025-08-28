@@ -34,23 +34,30 @@ What really defines me is my ability to connect ideas, adapt quickly, and keep p
       // Simulated delay for API call
       await new Promise(resolve => setTimeout(resolve, 3000));
       
-      // For now, we'll show an error message suggesting the API setup
-      throw new Error('D-ID API integration needed. Please set up the Edge Function for full functionality.');
+      // For now, we'll show a demo message and simulate speaking
+      console.log('Demo mode: Simulating AI avatar speech');
+      
+      // Directly start speaking simulation
+      setIsPlaying(true);
+      
+      // Simulate speaking duration
+      setTimeout(() => {
+        setIsPlaying(false);
+      }, 30000); // 30 seconds of simulated speaking
       
     } catch (error) {
-      console.error('Error generating talking avatar:', error);
-      setError('Demo mode: Click play to see a speaking animation simulation.');
+      console.error('Error in demo mode:', error);
+      setError('Click play to see speaking animation.');
       
-      // Fallback: Show speaking animation on static image
+      // Fallback: Show speaking animation on static image after brief delay
       setTimeout(() => {
         setError(null);
         setIsPlaying(true);
         
-        // Simulate speaking duration
         setTimeout(() => {
           setIsPlaying(false);
-        }, 30000); // 30 seconds of simulated speaking
-      }, 2000);
+        }, 30000);
+      }, 1000);
     } finally {
       setIsLoading(false);
     }

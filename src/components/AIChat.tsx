@@ -37,48 +37,114 @@ const AIChat = () => {
   const getAIResponse = (userMessage: string): string => {
     const message = userMessage.toLowerCase();
     
-    // Education responses
-    if (message.includes("education") || message.includes("degree") || message.includes("university")) {
-      return "Ankita is currently pursuing a B.Tech in Computer Science at NIIT University (2022-2026) in Neemrana, Rajasthan. She has a strong CGPA of 9.36 and has studied relevant modules including Machine Learning, Deep Learning, Statistics, Data Mining, Database Systems, Big Data Analytics, and Agentic AI.";
+    // More intelligent response matching with better context
+    const educationKeywords = ["education", "degree", "university", "study", "studies", "academic", "cgpa", "gpa", "qualification"];
+    const skillsKeywords = ["skills", "programming", "languages", "technology", "tools", "python", "sql", "ml", "machine learning"];
+    const experienceKeywords = ["experience", "work", "job", "position", "role", "employment", "career"];
+    const projectsKeywords = ["projects", "portfolio", "work samples", "github", "code", "development"];
+    const contactKeywords = ["contact", "email", "phone", "reach", "connect", "hire", "opportunity"];
+    const achievementKeywords = ["achievements", "accomplishments", "awards", "recognition", "publications", "research"];
+    const personalityKeywords = ["personality", "about", "who are you", "tell me about", "describe yourself"];
+
+    // Check for education-related queries
+    if (educationKeywords.some(keyword => message.includes(keyword))) {
+      return `Ankita is pursuing her B.Tech in Computer Science at NIIT University (2022-2026) with an impressive CGPA of 9.36. Her coursework includes advanced modules like Machine Learning, Deep Learning, Statistics, Data Mining, Database Systems, Big Data Analytics, and Agentic AI. She also completed her XII from Parmarth International School with 85% and X with 92%.`;
     }
     
-    // Skills responses
-    if (message.includes("skills") || message.includes("programming") || message.includes("languages")) {
-      return "Ankita has strong technical skills in:\n• Programming: Python, SQL, R\n• Technologies: Git, Docker, Jenkins, Asana, ClickUp, Jupyter Notebook\n• Databases: MySQL, MongoDB, OracleDB\n• Data Analysis: Pandas, NumPy, Matplotlib, Seaborn, PowerBI\n• Machine Learning: Scikit-learn, TensorFlow, Deep Learning, Time Series Analysis";
+    // Check for skills-related queries
+    if (skillsKeywords.some(keyword => message.includes(keyword))) {
+      return `Ankita has comprehensive technical expertise across multiple domains:
+      
+Programming: Python, SQL, R, JavaScript
+Data Analysis: Pandas, NumPy, Matplotlib, Seaborn, PowerBI, Excel
+Machine Learning: Scikit-learn, TensorFlow, Deep Learning, OpenAI GPT-4, LangChain
+Tools & Technologies: Git, Docker, Jenkins, Jupyter Notebook, MySQL, MongoDB
+
+She's particularly strong in data science, machine learning, and AI development.`;
     }
     
-    // Experience responses
-    if (message.includes("experience") || message.includes("work") || message.includes("job")) {
-      return "Ankita currently works as Head of CoEET & Teaching Assistant at NIIT University (Jan 2023 - May 2025). She has 2.5 years of experience in educational technology research and project management, working with 20+ course faculty and industry collaborations. She manages 40+ student projects using data analytics and process optimization technologies.";
+    // Check for experience-related queries
+    if (experienceKeywords.some(keyword => message.includes(keyword))) {
+      return `Ankita currently serves as Head of CoEET & Teaching Assistant at NIIT University (Jan 2023 - May 2025). In this role, she manages 40+ student projects per semester, conducts research analysis on 150+ EdTech project ideas, and coordinates industry-academia collaborations. She has 2.5 years of experience working with 20+ course faculty and has built strong partnerships with data-focused companies like PerspectAI.`;
     }
     
-    // Projects responses
-    if (message.includes("projects") || message.includes("portfolio")) {
-      return "Ankita has worked on several impressive projects:\n• Financial Market Risk Prediction System using ARIMA and GARCH algorithms\n• AI Code Review Assistant with FastAPI and OpenAI GPT-4\n• Comprehensive ML Portfolio with 11 case studies achieving 84.6% accuracy\n• Multi-Agent Traffic Management System using reinforcement learning\nAll projects demonstrate strong technical skills and real-world impact.";
+    // Check for project-related queries
+    if (projectsKeywords.some(keyword => message.includes(keyword))) {
+      return `Ankita has developed several impactful projects:
+
+• Financial Market Risk Prediction System using ARIMA and GARCH algorithms
+• AI Code Review Assistant (Full-stack with FastAPI, supports multiple languages)
+• Comprehensive ML Portfolio with 11 case studies achieving 84.6% accuracy
+• Multi-Agent Traffic Management System using DQN and A3C with 97.4% efficiency
+
+All projects demonstrate strong technical implementation and real-world applicability. You can view them on her GitHub.`;
     }
     
-    // Machine Learning specific
-    if (message.includes("machine learning") || message.includes("ml") || message.includes("ai")) {
-      return "Ankita has extensive machine learning experience including regression analysis, classification algorithms, time series forecasting (ARIMA), clustering analysis, deep learning with CNNs, and cross-validation methodologies. She's worked with frameworks like TensorFlow, Scikit-learn, and has experience with OpenAI GPT-4 and Hugging Face transformers.";
+    // Check for contact/hiring queries
+    if (contactKeywords.some(keyword => message.includes(keyword))) {
+      return `You can reach Ankita at:
+📧 Email: ankita.kapoor22@st.niituniversity.in
+📱 Phone: +91 6230582003
+📍 Location: Neemrana, Rajasthan
+💼 LinkedIn: Available in her profile
+🔗 GitHub: github.com/AnkitaKapoor980
+
+She's currently open to opportunities and typically responds within 24 hours. Her expected graduation is May 2026.`;
     }
     
-    // Achievements
-    if (message.includes("achievements") || message.includes("accomplishments") || message.includes("awards")) {
-      return "Ankita has co-authored a research paper accepted at the International Conference on Engineering Trends in Education Systems & Sustainability (ICETESS 2025) and served as Orange House Captain and Vice-Captain at NIIT University during Jan 2024 – Dec 2025.";
+    // Check for achievement queries
+    if (achievementKeywords.some(keyword => message.includes(keyword))) {
+      return `Ankita has notable achievements including:
+      
+• Co-authored research paper accepted at International Conference on Engineering Trends in Education Systems & Sustainability (ICETESS 2025)
+• Served as Orange House Captain and Vice-Captain at NIIT University (Jan 2024 – Dec 2025)
+• Successfully managed 40+ projects with data-driven process optimization
+• Built strong industry-academia partnerships
+• Maintained excellent academic performance with 9.36 CGPA`;
     }
     
-    // Contact information
-    if (message.includes("contact") || message.includes("email") || message.includes("phone")) {
-      return "You can reach Ankita at:\n• Email: ankita.kapoor22@st.niituniversity.in\n• Phone: +91 6230582003\n• LinkedIn: Available in her profile\n• GitHub: github.com/AnkitaKapoor980\n• Location: Neemrana, Rajasthan";
+    // Check for personality/about queries
+    if (personalityKeywords.some(keyword => message.includes(keyword))) {
+      return `Ankita is passionate about creating digital solutions that balance technical expertise with creative problem-solving. She specializes in building modern, user-focused applications and has a strong eye for design and usability. What defines her is the ability to connect ideas, adapt quickly, and maintain a growth mindset. She values collaboration, clear communication, and brings positive energy to teams. Her goal is to create work that's not only functional but meaningful.`;
     }
     
-    // Why hire responses
-    if (message.includes("why hire") || message.includes("why choose") || message.includes("strengths")) {
-      return "Ankita brings a unique combination of:\n• Strong academic performance (9.36 CGPA)\n• 2.5 years of hands-on experience in data analytics\n• Leadership experience managing teams and projects\n• Proven track record with 15+ completed projects\n• Research publication experience\n• Industry-academia collaboration experience\n• Full-stack development capabilities\n• Strong foundation in both theoretical concepts and practical applications";
+    // Handle specific technical questions
+    if (message.includes("python") || message.includes("programming language")) {
+      return "Ankita is highly proficient in Python for data science, machine learning, and web development. She also works with SQL for database management, R for statistical analysis, and JavaScript for web development.";
     }
     
-    // Default response
-    return "I'd be happy to help you learn more about Ankita! You can ask me about her education, skills, projects, experience, achievements, or contact information. Is there something specific you'd like to know?";
+    if (message.includes("machine learning") || message.includes("ai") || message.includes("artificial intelligence")) {
+      return "Ankita has extensive experience in machine learning including regression, classification, time series analysis (ARIMA), deep learning with CNNs, reinforcement learning (DQN, A3C), and modern AI technologies like OpenAI GPT-4 and LangChain. She's worked on projects achieving up to 97.4% efficiency.";
+    }
+    
+    // Handle why hire questions with more context
+    if (message.includes("why hire") || message.includes("why choose") || message.includes("what makes") || message.includes("strengths")) {
+      return `Here's why Ankita would be a great addition to your team:
+
+🎓 Strong academic foundation (9.36 CGPA) with relevant coursework
+💼 2.5 years of hands-on experience in data analytics and project management  
+👥 Proven leadership with experience managing 40+ projects and teams
+🔬 Research experience with published work and industry collaborations
+💻 Full-stack capabilities from data analysis to web development
+🚀 15+ completed projects demonstrating practical application of skills
+🤝 Strong communication and collaboration skills
+📈 Track record of improving outcomes through data-driven solutions
+
+She brings both technical depth and the soft skills needed for successful project delivery.`;
+    }
+    
+    // Default response with suggestions
+    return `I'm here to help you learn more about Ankita! I can provide detailed information about:
+
+• Her education and academic achievements
+• Technical skills and programming expertise  
+• Professional experience and leadership roles
+• Project portfolio and accomplishments
+• Research publications and achievements
+• Contact information and availability
+• Why she'd be a great fit for your team
+
+What specific aspect would you like to know more about?`;
   };
 
   const handleSend = async () => {
@@ -106,7 +172,7 @@ const AIChat = () => {
       
       setMessages(prev => [...prev, botResponse]);
       setIsTyping(false);
-    }, 1500);
+    }, 1000);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {

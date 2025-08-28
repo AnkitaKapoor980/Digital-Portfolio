@@ -23,10 +23,10 @@ const Projects = () => {
       icon: <TrendingUp className="h-8 w-8" />,
       technologies: ["Python", "ARIMA", "GARCH", "Time Series", "Docker", "Jenkins"],
       category: "Machine Learning",
-      githubUrl: "https://github.com/AnkitaKapoor980",
-      liveUrl: "#",
+      githubUrl: "https://github.com/AnkitaKapoor980/Financial-Market-Risk-Prediction",
+      hasLiveDemo: false,
       imageUrl: financialDashboard,
-      imageGradient: "from-green-400 to-blue-500",
+      imageGradient: "from-blue-500 to-teal-500",
       details: {
         problem: "Financial markets are highly volatile and predicting risk is crucial for trading decisions.",
         solution: "Developed statistical models to analyze historical data and predict market volatility.",
@@ -41,10 +41,11 @@ const Projects = () => {
       icon: <Brain className="h-8 w-8" />,
       technologies: ["FastAPI", "Python", "C++", "OpenAI GPT-4", "AST", "Hugging Face"],
       category: "AI/NLP",
-      githubUrl: "https://github.com/AnkitaKapoor980",
-      liveUrl: "#",
+      githubUrl: "https://github.com/AnkitaKapoor980/AI-Code-Review-Assistant",
+      liveUrl: "https://ai-code-review-assistant.railway.app/",
+      hasLiveDemo: true,
       imageUrl: aiCodeReview,
-      imageGradient: "from-purple-400 to-pink-500",
+      imageGradient: "from-purple-500 to-blue-500",
       details: {
         problem: "Manual code reviews are time-consuming and may miss security vulnerabilities.",
         solution: "Built an AI-powered system that automatically reviews code for quality and security issues.",
@@ -59,10 +60,10 @@ const Projects = () => {
       icon: <BarChart3 className="h-8 w-8" />,
       technologies: ["Python", "Scikit-learn", "Deep Learning", "CNNs", "Regression", "Classification"],
       category: "Data Science",
-      githubUrl: "https://github.com/AnkitaKapoor980",
-      liveUrl: "#",
+      githubUrl: "https://github.com/AnkitaKapoor980/Machine-Learning-Portfolio",
+      hasLiveDemo: false,
       imageUrl: mlPortfolio,
-      imageGradient: "from-blue-400 to-indigo-500",
+      imageGradient: "from-green-500 to-blue-500",
       details: {
         problem: "Demonstrating versatility across different ML domains and problem types.",
         solution: "Implemented diverse ML techniques including regression, classification, clustering, and deep learning.",
@@ -77,10 +78,10 @@ const Projects = () => {
       icon: <Car className="h-8 w-8" />,
       technologies: ["DQN", "A3C", "GNN", "Transformers", "Reinforcement Learning", "Python"],
       category: "Reinforcement Learning",
-      githubUrl: "https://github.com/AnkitaKapoor980",
-      liveUrl: "#",
+      githubUrl: "https://github.com/AnkitaKapoor980/Multi-Agent-Traffic-System",
+      hasLiveDemo: false,
       imageUrl: trafficSystem,
-      imageGradient: "from-orange-400 to-red-500",
+      imageGradient: "from-orange-500 to-red-500",
       details: {
         problem: "Traffic management in urban areas requires coordinated decision-making across multiple controllers.",
         solution: "Proposed multi-agent system using reinforcement learning for optimized traffic flow.",
@@ -135,8 +136,9 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="flex"
             >
-              <Card className="project-card h-full overflow-hidden group">
+              <Card className="project-card w-full flex flex-col overflow-hidden group">
                 {/* Project Image Header */}
                 <div className="relative h-48 overflow-hidden">
                   <img 
@@ -145,7 +147,7 @@ const Projects = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.imageGradient} opacity-80`}></div>
-                  <div className="absolute inset-0 bg-black/30"></div>
+                  <div className="absolute inset-0 bg-black/20"></div>
                   
                   {/* Floating project icon */}
                   <motion.div
@@ -153,7 +155,9 @@ const Projects = () => {
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
-                    {project.icon}
+                    <div className="text-white">
+                      {project.icon}
+                    </div>
                   </motion.div>
                   
                   {/* Project title overlay */}
@@ -163,34 +167,10 @@ const Projects = () => {
                       {project.category}
                     </Badge>
                   </div>
-                  
-                  {/* Animated particles */}
-                  <div className="absolute inset-0 overflow-hidden">
-                    {[...Array(6)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-white rounded-full opacity-60"
-                        animate={{
-                          x: [Math.random() * 100, Math.random() * 100, Math.random() * 100],
-                          y: [Math.random() * 100, Math.random() * 100, Math.random() * 100],
-                        }}
-                        transition={{
-                          duration: 8 + Math.random() * 4,
-                          repeat: Infinity,
-                          ease: "linear",
-                          delay: i * 0.5
-                        }}
-                        style={{
-                          left: `${Math.random() * 100}%`,
-                          top: `${Math.random() * 100}%`,
-                        }}
-                      />
-                    ))}
-                  </div>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6 space-y-4">
+                <div className="p-6 space-y-4 flex-1 flex flex-col">
                   <p className="text-muted-foreground leading-relaxed">
                     {project.summary}
                   </p>
@@ -205,7 +185,7 @@ const Projects = () => {
                   </div>
 
                   {/* Project Details */}
-                  <div className="space-y-3 text-sm">
+                  <div className="space-y-3 text-sm flex-1">
                     <div>
                       <span className="font-semibold text-primary">Problem: </span>
                       <span className="text-muted-foreground">{project.details.problem}</span>
@@ -221,7 +201,7 @@ const Projects = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3 pt-4">
+                  <div className="flex gap-3 pt-4 mt-auto">
                     <Button 
                       variant="outline" 
                       size="sm" 
@@ -233,16 +213,18 @@ const Projects = () => {
                         GitHub
                       </a>
                     </Button>
-                    <Button 
-                      size="sm" 
-                      className="flex-1"
-                      asChild
-                    >
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Live Demo
-                      </a>
-                    </Button>
+                    {project.hasLiveDemo && (
+                      <Button 
+                        size="sm" 
+                        className="flex-1"
+                        asChild
+                      >
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Live Demo
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </Card>

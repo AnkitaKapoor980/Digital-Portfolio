@@ -52,7 +52,7 @@ const Contact = () => {
       icon: <Linkedin className="h-8 w-8" />,
       label: "LinkedIn",
       username: "Ankita Kapoor",
-      url: "#",
+      url: "https://www.linkedin.com/in/ankita-kapoor-b2b60824b/",
       description: "Professional network and industry connections",
       gradient: "from-blue-600 to-blue-800"
     }
@@ -136,9 +136,12 @@ const Contact = () => {
                   </div>
                   <Button 
                     className="bg-gradient-to-r from-orange-500 to-red-500 hover:scale-105 transition-transform duration-300"
+                    asChild
                   >
-                    <Download className="mr-2 h-4 w-4" />
-                    Download
+                    <a href="mailto:ankita.kapoor22@st.niituniversity.in?subject=Resume Request&body=Hello Ankita, I would like to request your resume." target="_blank" rel="noopener noreferrer">
+                      <Download className="mr-2 h-4 w-4" />
+                      Request Resume
+                    </a>
                   </Button>
                 </div>
               </Card>

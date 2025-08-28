@@ -12,46 +12,46 @@ const Skills = () => {
       title: "Programming Languages",
       image: pythonIcon,
       skills: [
-        { name: "Python", level: "Advanced" },
-        { name: "SQL", level: "Advanced" },
-        { name: "R", level: "Intermediate" },
-        { name: "JavaScript", level: "Intermediate" },
+        { name: "Python" },
+        { name: "SQL" },
+        { name: "R" },
+        { name: "JavaScript" },
       ]
     },
     {
       title: "Data Analysis Tools",
       image: dataToolsIcon,
       skills: [
-        { name: "Pandas", level: "Advanced" },
-        { name: "NumPy", level: "Advanced" },
-        { name: "Matplotlib", level: "Advanced" },
-        { name: "Seaborn", level: "Advanced" },
-        { name: "PowerBI", level: "Intermediate" },
-        { name: "Excel", level: "Advanced" },
+        { name: "Pandas" },
+        { name: "NumPy" },
+        { name: "Matplotlib" },
+        { name: "Seaborn" },
+        { name: "PowerBI" },
+        { name: "Excel" },
       ]
     },
     {
       title: "Machine Learning & AI",
       image: mlIcon,
       skills: [
-        { name: "Scikit-learn", level: "Advanced" },
-        { name: "TensorFlow", level: "Intermediate" },
-        { name: "Deep Learning", level: "Intermediate" },
-        { name: "OpenAI GPT-4", level: "Advanced" },
-        { name: "LangChain", level: "Intermediate" },
-        { name: "Time Series", level: "Advanced" },
+        { name: "Scikit-learn" },
+        { name: "TensorFlow" },
+        { name: "Deep Learning" },
+        { name: "OpenAI GPT-4" },
+        { name: "LangChain" },
+        { name: "Time Series Analysis" },
       ]
     },
     {
       title: "Technologies & Tools",
       image: techToolsIcon,
       skills: [
-        { name: "Git", level: "Advanced" },
-        { name: "Docker", level: "Intermediate" },
-        { name: "Jenkins", level: "Beginner" },
-        { name: "Jupyter", level: "Advanced" },
-        { name: "MySQL", level: "Intermediate" },
-        { name: "MongoDB", level: "Intermediate" },
+        { name: "Git" },
+        { name: "Docker" },
+        { name: "Jenkins" },
+        { name: "Jupyter Notebook" },
+        { name: "MySQL" },
+        { name: "MongoDB" },
       ]
     }
   ];
@@ -115,16 +115,10 @@ const Skills = () => {
                       viewport={{ once: true }}
                       className="group/skill"
                     >
-                      <div className="flex items-center justify-between p-3 rounded-lg bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-primary/5">
+                      <div className="flex items-center p-3 rounded-lg bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-primary/5">
                         <span className="font-medium text-foreground group-hover/skill:text-primary transition-colors">
                           {skill.name}
                         </span>
-                        <Badge 
-                          variant="outline"
-                          className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20 text-xs font-medium"
-                        >
-                          {skill.level}
-                        </Badge>
                       </div>
                     </motion.div>
                   ))}
@@ -145,7 +139,7 @@ const Skills = () => {
           {[
             { label: "Projects Completed", value: "15+", icon: "🚀" },
             { label: "GitHub Repositories", value: "25+", icon: "📂" },
-            { label: "Research Papers", value: "2", icon: "📄" },
+            { label: "Research Papers", value: "1", icon: "📄" },
             { label: "Years Experience", value: "2.5", icon: "⏱️" },
           ].map((stat, index) => (
             <motion.div
