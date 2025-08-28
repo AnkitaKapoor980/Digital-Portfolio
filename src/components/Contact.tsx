@@ -132,15 +132,19 @@ const Contact = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="font-bold text-white mb-1">Resume & Portfolio</h4>
-                    <p className="text-sm text-orange-200">Download my complete resume</p>
+                    <p className="text-sm text-orange-200">Check out my complete resume</p>
                   </div>
-                  <Button 
+                  <Button
                     className="bg-gradient-to-r from-orange-500 to-red-500 hover:scale-105 transition-transform duration-300"
                     asChild
                   >
-                    <a href="mailto:ankita.kapoor22@st.niituniversity.in?subject=Resume Request&body=Hello Ankita, I would like to request your resume." target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="/Ankita_Kapoor_NIIT_University.pdf" // If placed in public folder
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Download className="mr-2 h-4 w-4" />
-                      Request Resume
+                      Resume
                     </a>
                   </Button>
                 </div>
