@@ -45,7 +45,7 @@ const Contact = () => {
       label: "GitHub",
       username: "AnkitaKapoor980",
       url: "https://github.com/AnkitaKapoor980",
-      description: "25+ repositories showcasing data science projects",
+      description: "15+ repositories showcasing data science projects",
       gradient: "from-gray-700 to-gray-900"
     },
     {
