@@ -28,8 +28,7 @@ const About = () => {
     { icon: <Brain className="h-4 w-4" />, name: "Artificial Intelligence" },
     { icon: <Database className="h-4 w-4" />, name: "Data Analytics" },
     { icon: <Code className="h-4 w-4" />, name: "Deep Learning" },
-    { icon: <Brain className="h-4 w-4" />, name: "Computer Vision" },
-    { icon: <Database className="h-4 w-4" />, name: "NLP" }
+    { icon: <Brain className="h-4 w-4" />, name: "Computer Vision" }
   ];
 
   return (

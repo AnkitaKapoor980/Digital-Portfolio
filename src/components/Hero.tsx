@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download, ChevronDown, ArrowRight } from "lucide-react";
+import profileImg from "@/assets/profile.jpg";
 
 const Hero = () => {
   const scrollToSection = (href: string) => {
@@ -27,6 +28,13 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="space-y-2"
           >
+            {/* Profile Image */}
+            <img
+            src={profileImg}
+            alt="Ankita Kapoor"
+            className="w-40 h-40 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow"
+          />
+
             <p className="text-lg text-muted-foreground font-medium">Hello, I'm</p>
             <h1 className="text-6xl lg:text-7xl font-bold gradient-text leading-tight">
               Ankita Kapoor
@@ -129,7 +137,7 @@ const Hero = () => {
         >
           <ChevronDown className="h-6 w-6" />
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

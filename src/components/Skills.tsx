@@ -20,21 +20,20 @@ const Skills = () => {
       title: "Programming Languages",
       icon: <Code className="h-6 w-6" />,
       skills: [
-        { name: "Python", level: 90 },
-        { name: "R", level: 80 },
-        { name: "SQL", level: 85 },
-        { name: "JavaScript", level: 75 },
-        { name: "C++", level: 70 }
+        { name: "Python", level: 70 },
+        { name: "R", level: 50 },
+        { name: "SQL", level: 65 },
+        { name: "JavaScript", level: 55 }
       ]
     },
     {
       title: "Machine Learning & AI",
       icon: <Brain className="h-6 w-6" />,
       skills: [
-        { name: "Scikit-learn", level: 90 },
-        { name: "TensorFlow", level: 85 },
-        { name: "PyTorch", level: 80 },
-        { name: "Keras", level: 85 },
+        { name: "Scikit-learn", level: 70 },
+        { name: "TensorFlow", level: 80 },
+        { name: "PyTorch", level: 70 },
+        { name: "Keras", level: 80 },
         { name: "OpenCV", level: 75 }
       ]
     },
@@ -53,9 +52,8 @@ const Skills = () => {
       title: "Databases & Big Data",
       icon: <Database className="h-6 w-6" />,
       skills: [
-        { name: "MySQL", level: 80 },
-        { name: "PostgreSQL", level: 75 },
-        { name: "MongoDB", level: 70 },
+        { name: "MySQL", level: 60 },
+        { name: "MongoDB", level: 85 },
         { name: "Apache Spark", level: 65 },
         { name: "Hadoop", level: 60 }
       ]
@@ -65,8 +63,7 @@ const Skills = () => {
       icon: <Globe className="h-6 w-6" />,
       skills: [
         { name: "FastAPI", level: 85 },
-        { name: "Flask", level: 80 },
-        { name: "React", level: 75 },
+        { name: "React", level: 45 },
         { name: "HTML/CSS", level: 80 },
         { name: "REST APIs", level: 85 }
       ]
@@ -77,9 +74,7 @@ const Skills = () => {
       skills: [
         { name: "Git", level: 85 },
         { name: "Docker", level: 75 },
-        { name: "Jupyter", level: 90 },
-        { name: "AWS", level: 70 },
-        { name: "Google Cloud", level: 65 }
+        { name: "Jupyter", level: 90 }
       ]
     }
   ];
@@ -88,7 +83,6 @@ const Skills = () => {
     { name: "Machine Learning", icon: <Brain className="h-4 w-4" /> },
     { name: "Deep Learning", icon: <TrendingUp className="h-4 w-4" /> },
     { name: "Computer Vision", icon: <BookOpen className="h-4 w-4" /> },
-    { name: "Natural Language Processing", icon: <Code className="h-4 w-4" /> },
     { name: "Data Visualization", icon: <BarChart3 className="h-4 w-4" /> },
     { name: "Statistical Analysis", icon: <TrendingUp className="h-4 w-4" /> },
     { name: "Predictive Modeling", icon: <Brain className="h-4 w-4" /> },

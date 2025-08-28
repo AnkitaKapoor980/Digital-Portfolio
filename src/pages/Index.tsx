@@ -6,7 +6,6 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
-import AIChat from "@/components/AIChat";
 import CursorRipple from "@/components/CursorRipple";
 import WaterBackground from "@/components/WaterBackground";
 
@@ -26,7 +25,6 @@ const Index = () => {
         <Experience />
         <Contact />
       </main>
-      <AIChat />
     </div>
   );
 };

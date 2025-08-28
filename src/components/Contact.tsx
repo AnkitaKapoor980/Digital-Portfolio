@@ -128,7 +128,7 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <Card className="glass-card p-6 bg-gradient-to-br from-orange-500/20 to-red-500/20 border-orange-300/30">
+              <Card className="glass-card p-6 bg-white/10 border-white/20 backdrop-blur-sm">
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="font-bold text-white mb-1">Resume & Portfolio</h4>
@@ -206,7 +206,7 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="glass-card p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-300/30">
+              <Card className="glass-card p-6 bg-white/10 border-white/20 backdrop-blur-sm">
                 <h4 className="font-bold text-white mb-4 flex items-center gap-2">
                   <Calendar className="h-5 w-5" />
                   Availability
@@ -238,7 +238,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <Card className="glass-card p-8 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-orange-500/20 border-white/20 max-w-4xl mx-auto">
+          <Card className="glass-card p-6 bg-white/10 border-white/20 backdrop-blur-sm">
             <h3 className="text-2xl font-bold text-white mb-4">
               Ready to Build Something Amazing Together?
             </h3>
