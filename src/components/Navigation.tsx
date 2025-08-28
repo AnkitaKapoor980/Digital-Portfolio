@@ -9,6 +9,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Home", href: "#home", icon: <Home className="h-4 w-4" /> },
+    { name: "About", href: "#about", icon: <User className="h-4 w-4" /> },
     { name: "Skills", href: "#skills", icon: <User className="h-4 w-4" /> },
     { name: "Projects", href: "#projects", icon: <Code className="h-4 w-4" /> },
     { name: "Experience", href: "#experience", icon: <Briefcase className="h-4 w-4" /> },
@@ -39,7 +40,7 @@ const Navigation = () => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-white/90 backdrop-blur-lg shadow-lg border-b border-white/20" 
+          ? "bg-background/90 backdrop-blur-lg shadow-lg border-b border-border" 
           : "bg-transparent"
       }`}
     >
@@ -50,10 +51,10 @@ const Navigation = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2"
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold">
+            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center text-primary-foreground font-bold">
               AK
             </div>
-            <span className={`font-bold text-lg ${scrolled ? "text-gray-900" : "text-white"}`}>
+            <span className={`font-bold text-lg ${scrolled ? "text-foreground" : "text-foreground"}`}>
               Ankita Kapoor
             </span>
           </motion.div>
@@ -71,11 +72,7 @@ const Navigation = () => {
                   variant="ghost"
                   size="sm"
                   onClick={() => scrollToSection(item.href)}
-                  className={`flex items-center gap-2 transition-colors ${
-                    scrolled 
-                      ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50" 
-                      : "text-white hover:text-blue-200 hover:bg-white/10"
-                  }`}
+                  className="flex items-center gap-2 hover:text-primary hover:bg-primary/10"
                 >
                   {item.icon}
                   {item.name}
@@ -89,7 +86,7 @@ const Navigation = () => {
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden ${scrolled ? "text-gray-700" : "text-white"}`}
+            className="md:hidden"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
@@ -102,7 +99,7 @@ const Navigation = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200 rounded-b-lg shadow-lg"
+            className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border rounded-b-lg shadow-lg"
           >
             <div className="py-4 space-y-2">
               {navItems.map((item) => (
@@ -110,7 +107,7 @@ const Navigation = () => {
                   key={item.name}
                   variant="ghost"
                   onClick={() => scrollToSection(item.href)}
-                  className="w-full justify-start gap-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                  className="w-full justify-start gap-3 hover:text-primary hover:bg-primary/10"
                 >
                   {item.icon}
                   {item.name}

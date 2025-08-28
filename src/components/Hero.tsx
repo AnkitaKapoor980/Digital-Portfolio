@@ -1,219 +1,116 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Download, ChevronDown } from "lucide-react";
-import TalkingAvatar from "@/components/TalkingAvatar";
+import { Github, Linkedin, Mail, Download, ChevronDown, ArrowRight } from "lucide-react";
 
 const Hero = () => {
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="hero-section min-h-screen flex items-center justify-center relative px-4">
-      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        {/* Left Column - Text Content */}
+    <section className="min-h-screen flex items-center justify-center relative px-4 bg-gradient-to-br from-background via-background to-muted/20">
+      <div className="container mx-auto max-w-4xl text-center">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center lg:text-left space-y-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-8"
         >
+          {/* Greeting */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="space-y-2"
           >
-            <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Hi, I'm{" "}
-              <span className="gradient-text bg-gradient-to-r from-white to-blue-200">
-                Ankita Kapoor
-              </span>
+            <p className="text-lg text-muted-foreground font-medium">Hello, I'm</p>
+            <h1 className="text-6xl lg:text-7xl font-bold gradient-text leading-tight">
+              Ankita Kapoor
             </h1>
-            <div className="text-2xl lg:text-3xl text-blue-100 font-light">
+            <h2 className="text-2xl lg:text-3xl text-muted-foreground font-light mt-4">
               Data Scientist & AI Engineer
-            </div>
+            </h2>
           </motion.div>
 
+          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-lg text-blue-50 max-w-2xl leading-relaxed"
+            className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
             Transforming data into actionable insights with Machine Learning and AI. 
             B.Tech Computer Science student at NIIT University, specializing in predictive 
             modeling, deep learning, and intelligent systems.
           </motion.p>
 
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex flex-wrap gap-4 justify-center lg:justify-start"
+            className="flex flex-wrap gap-4 justify-center"
           >
             <Button 
               size="lg" 
-              className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+              onClick={() => scrollToSection('#projects')}
+              className="group"
             >
-              <Download className="mr-2 h-5 w-5" />
-              Download Resume
+              View My Work
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
               variant="outline" 
               size="lg"
-              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+              onClick={() => scrollToSection('#contact')}
             >
-              View Projects
+              <Mail className="mr-2 h-5 w-5" />
+              Get In Touch
             </Button>
           </motion.div>
 
+          {/* Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="flex gap-4 justify-center lg:justify-start pt-4"
+            className="flex gap-4 justify-center pt-4"
           >
             <Button 
               variant="ghost" 
               size="icon"
-              className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
+              className="hover:scale-110 transition-transform"
+              asChild
             >
-              <Github className="h-6 w-6" />
+              <a href="https://github.com/AnkitaKapoor980" target="_blank" rel="noopener noreferrer">
+                <Github className="h-5 w-5" />
+              </a>
             </Button>
             <Button 
               variant="ghost" 
               size="icon"
-              className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
+              className="hover:scale-110 transition-transform"
+              asChild
             >
-              <Linkedin className="h-6 w-6" />
+              <a href="https://linkedin.com/in/ankita-kapoor" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="h-5 w-5" />
+              </a>
             </Button>
             <Button 
               variant="ghost" 
               size="icon"
-              className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
+              className="hover:scale-110 transition-transform"
+              asChild
             >
-              <Mail className="h-6 w-6" />
+              <a href="mailto:ankitakapoor980@gmail.com">
+                <Mail className="h-5 w-5" />
+              </a>
             </Button>
           </motion.div>
-        </motion.div>
-
-        {/* Right Column - Talking AI Avatar */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          className="flex justify-center relative"
-        >
-          <div className="relative group">
-            {/* Hexagonal Frame Background */}
-            <div className="relative w-80 h-80 flex items-center justify-center">
-              {/* Animated Hexagon Border */}
-              <motion.div
-                animate={{ 
-                  rotate: [0, 120, 240, 360],
-                  scale: [1, 1.05, 1, 1.05, 1]
-                }}
-                transition={{ 
-                  duration: 8, 
-                  repeat: Infinity, 
-                  ease: "easeInOut"
-                }}
-                className="absolute inset-0 opacity-80"
-                style={{
-                  background: `conic-gradient(from 0deg, 
-                    hsl(var(--primary)), 
-                    hsl(var(--accent)), 
-                    hsl(var(--secondary)), 
-                    hsl(var(--primary))
-                  )`,
-                  clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-                  padding: '4px'
-                }}
-              >
-                <div 
-                  className="w-full h-full bg-background"
-                  style={{
-                    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
-                  }}
-                />
-              </motion.div>
-
-              {/* Talking Avatar Component */}
-              <div className="relative z-10">
-                <TalkingAvatar autoStart={true} />
-              </div>
-            </div>
-
-            {/* Floating Data Particles */}
-            {[...Array(8)].map((_, i) => (
-              <motion.div
-                key={i}
-                animate={{
-                  x: [0, Math.sin(i * 45 * Math.PI / 180) * 40],
-                  y: [0, Math.cos(i * 45 * Math.PI / 180) * 40],
-                  rotate: [0, 360],
-                  scale: [0.8, 1.2, 0.8]
-                }}
-                transition={{
-                  duration: 4 + i * 0.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: i * 0.3
-                }}
-                className={`absolute w-12 h-12 rounded-full backdrop-blur-sm border border-white/30 flex items-center justify-center text-2xl z-20`}
-                style={{
-                  background: `linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2))`,
-                  top: `${50 + Math.cos(i * 45 * Math.PI / 180) * 45}%`,
-                  left: `${50 + Math.sin(i * 45 * Math.PI / 180) * 45}%`,
-                  transform: 'translate(-50%, -50%)'
-                }}
-              >
-                {['📊', '🤖', '💡', '📈', '🔬', '⚡', '🎯', '🚀'][i]}
-              </motion.div>
-            ))}
-
-            {/* Pulsing Ring Effect */}
-            <motion.div
-              animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.3, 0, 0.3]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute inset-0 rounded-full border-2 border-primary/30"
-            />
-
-            {/* Neural Network Lines */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
-              {[...Array(6)].map((_, i) => (
-                <motion.line
-                  key={i}
-                  x1="50%"
-                  y1="50%"
-                  x2={`${50 + Math.cos(i * 60 * Math.PI / 180) * 40}%`}
-                  y2={`${50 + Math.sin(i * 60 * Math.PI / 180) * 40}%`}
-                  stroke="url(#gradient)"
-                  strokeWidth="2"
-                  strokeDasharray="5,5"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 0.6 }}
-                  transition={{
-                    duration: 2,
-                    delay: i * 0.2,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "easeInOut"
-                  }}
-                />
-              ))}
-              <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.8" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
         </motion.div>
       </div>
 
@@ -221,17 +118,18 @@ const Hero = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 1.2 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-white/70 hover:text-white cursor-pointer"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="text-muted-foreground hover:text-primary cursor-pointer"
+          onClick={() => scrollToSection('#skills')}
         >
-          <ChevronDown className="h-8 w-8" />
+          <ChevronDown className="h-6 w-6" />
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };

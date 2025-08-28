@@ -1,63 +1,102 @@
+
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import pythonIcon from "@/assets/python-icon.jpg";
-import mlIcon from "@/assets/ml-icon.jpg";
-import dataToolsIcon from "@/assets/data-tools-icon.jpg";
-import techToolsIcon from "@/assets/tech-tools-icon.jpg";
+import { Progress } from "@/components/ui/progress";
+import { 
+  Code, 
+  Database, 
+  Brain, 
+  BarChart3, 
+  Globe, 
+  Wrench,
+  BookOpen,
+  TrendingUp
+} from "lucide-react";
 
 const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      image: pythonIcon,
+      icon: <Code className="h-6 w-6" />,
       skills: [
-        { name: "Python" },
-        { name: "SQL" },
-        { name: "R" },
-        { name: "JavaScript" },
-      ]
-    },
-    {
-      title: "Data Analysis Tools",
-      image: dataToolsIcon,
-      skills: [
-        { name: "Pandas" },
-        { name: "NumPy" },
-        { name: "Matplotlib" },
-        { name: "Seaborn" },
-        { name: "PowerBI" },
-        { name: "Excel" },
+        { name: "Python", level: 90 },
+        { name: "R", level: 80 },
+        { name: "SQL", level: 85 },
+        { name: "JavaScript", level: 75 },
+        { name: "C++", level: 70 }
       ]
     },
     {
       title: "Machine Learning & AI",
-      image: mlIcon,
+      icon: <Brain className="h-6 w-6" />,
       skills: [
-        { name: "Scikit-learn" },
-        { name: "TensorFlow" },
-        { name: "Deep Learning" },
-        { name: "OpenAI GPT-4" },
-        { name: "LangChain" },
-        { name: "Time Series Analysis" },
+        { name: "Scikit-learn", level: 90 },
+        { name: "TensorFlow", level: 85 },
+        { name: "PyTorch", level: 80 },
+        { name: "Keras", level: 85 },
+        { name: "OpenCV", level: 75 }
       ]
     },
     {
-      title: "Technologies & Tools",
-      image: techToolsIcon,
+      title: "Data Analysis & Visualization",
+      icon: <BarChart3 className="h-6 w-6" />,
       skills: [
-        { name: "Git" },
-        { name: "Docker" },
-        { name: "Jenkins" },
-        { name: "Jupyter Notebook" },
-        { name: "MySQL" },
-        { name: "MongoDB" },
+        { name: "Pandas", level: 95 },
+        { name: "NumPy", level: 90 },
+        { name: "Matplotlib", level: 85 },
+        { name: "Seaborn", level: 85 },
+        { name: "Plotly", level: 80 }
+      ]
+    },
+    {
+      title: "Databases & Big Data",
+      icon: <Database className="h-6 w-6" />,
+      skills: [
+        { name: "MySQL", level: 80 },
+        { name: "PostgreSQL", level: 75 },
+        { name: "MongoDB", level: 70 },
+        { name: "Apache Spark", level: 65 },
+        { name: "Hadoop", level: 60 }
+      ]
+    },
+    {
+      title: "Web Technologies",
+      icon: <Globe className="h-6 w-6" />,
+      skills: [
+        { name: "FastAPI", level: 85 },
+        { name: "Flask", level: 80 },
+        { name: "React", level: 75 },
+        { name: "HTML/CSS", level: 80 },
+        { name: "REST APIs", level: 85 }
+      ]
+    },
+    {
+      title: "Tools & Platforms",
+      icon: <Wrench className="h-6 w-6" />,
+      skills: [
+        { name: "Git", level: 85 },
+        { name: "Docker", level: 75 },
+        { name: "Jupyter", level: 90 },
+        { name: "AWS", level: 70 },
+        { name: "Google Cloud", level: 65 }
       ]
     }
   ];
 
+  const specializations = [
+    { name: "Machine Learning", icon: <Brain className="h-4 w-4" /> },
+    { name: "Deep Learning", icon: <TrendingUp className="h-4 w-4" /> },
+    { name: "Computer Vision", icon: <BookOpen className="h-4 w-4" /> },
+    { name: "Natural Language Processing", icon: <Code className="h-4 w-4" /> },
+    { name: "Data Visualization", icon: <BarChart3 className="h-4 w-4" /> },
+    { name: "Statistical Analysis", icon: <TrendingUp className="h-4 w-4" /> },
+    { name: "Predictive Modeling", icon: <Brain className="h-4 w-4" /> },
+    { name: "Time Series Analysis", icon: <BarChart3 className="h-4 w-4" /> }
+  ];
+
   return (
-    <section className="py-20 relative" id="skills">
+    <section className="py-20" id="skills">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,101 +106,80 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold gradient-text mb-4">
-            Technical Skills
+            Skills & Expertise
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive toolkit for data science, machine learning, and AI development
+            Technical skills and tools I use to bring ideas to life
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        {/* Specializations */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h3 className="text-2xl font-semibold text-center mb-8">Specializations</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            {specializations.map((spec, index) => (
+              <motion.div
+                key={spec.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Badge variant="secondary" className="flex items-center gap-2 py-2 px-4 text-sm hover:bg-primary hover:text-primary-foreground transition-colors">
+                  {spec.icon}
+                  {spec.name}
+                </Badge>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Technical Skills */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="glass-card p-8 h-full group hover:scale-[1.02] transition-all duration-500">
-                <div className="flex items-center gap-4 mb-8">
-                  <motion.div 
-                    className="relative w-16 h-16 rounded-2xl overflow-hidden"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <img 
-                      src={category.image} 
-                      alt={category.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 mix-blend-overlay" />
-                  </motion.div>
-                  <h3 className="text-2xl font-bold gradient-text">
-                    {category.title}
-                  </h3>
+              <Card className="p-6 hover-lift h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                    {category.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold">{category.title}</h3>
                 </div>
-
-                <div className="grid gap-4">
+                
+                <div className="space-y-4">
                   {category.skills.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skill.name}
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ 
-                        duration: 0.6, 
-                        delay: (categoryIndex * 0.1) + (skillIndex * 0.08) 
-                      }}
-                      viewport={{ once: true }}
-                      className="group/skill"
-                    >
-                      <div className="flex items-center p-3 rounded-lg bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-primary/5">
-                        <span className="font-medium text-foreground group-hover/skill:text-primary transition-colors">
-                          {skill.name}
-                        </span>
+                    <div key={skill.name} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium">{skill.name}</span>
+                        <span className="text-xs text-muted-foreground">{skill.level}%</span>
                       </div>
-                    </motion.div>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "100%" }}
+                        transition={{ duration: 0.8, delay: (categoryIndex * 0.1) + (skillIndex * 0.1) }}
+                        viewport={{ once: true }}
+                      >
+                        <Progress value={skill.level} className="h-2" />
+                      </motion.div>
+                    </div>
                   ))}
                 </div>
               </Card>
             </motion.div>
           ))}
         </div>
-
-        {/* Additional Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {[
-            { label: "Projects Completed", value: "15+", icon: "🚀" },
-            { label: "GitHub Repositories", value: "25+", icon: "📂" },
-            { label: "Research Papers", value: "1", icon: "📄" },
-            { label: "Years Experience", value: "2.5", icon: "⏱️" },
-          ].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <Card className="glass-card p-6 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl mb-2">{stat.icon}</div>
-                <div className="text-3xl font-bold gradient-text">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground mt-1">
-                  {stat.label}
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

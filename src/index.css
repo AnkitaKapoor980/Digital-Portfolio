@@ -1,82 +1,64 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* AI-Enhanced Data Science Portfolio Design System */
+/* Modern Professional Portfolio Design System */
 
 @layer base {
   :root {
-    /* Professional Data Science Theme */
-    --background: 0 0% 98%;
-    --foreground: 210 40% 8%;
+    /* Modern Professional Theme */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 40% 8%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 8%;
+    --popover-foreground: 240 10% 3.9%;
 
-    /* Primary: Professional Navy Blue */
-    --primary: 210 100% 28%;
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 210 90% 45%;
+    /* Primary: Modern Blue */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Secondary: Elegant Gray */
-    --secondary: 210 20% 92%;
-    --secondary-foreground: 210 40% 8%;
+    /* Secondary: Subtle Gray */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
 
-    /* Accent: Modern Teal */
-    --accent: 190 100% 42%;
-    --accent-foreground: 0 0% 98%;
+    /* Accent: Vibrant Purple */
+    --accent: 262.1 83.3% 57.8%;
+    --accent-foreground: 210 40% 98%;
 
-    --muted: 220 15% 96%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 20% 90%;
-    --input: 220 20% 95%;
-    --ring: 220 80% 25%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
 
-    --radius: 12px;
-
-    /* Data Science Specific Colors */
-    --data-blue: 220 80% 50%;
-    --data-purple: 260 70% 60%;
-    --data-orange: 25 90% 65%;
-    --data-pink: 340 75% 65%;
-    --data-teal: 180 70% 50%;
+    --radius: 8px;
 
     /* Professional Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(210 100% 28%) 0%, hsl(190 100% 42%) 50%, hsl(210 100% 45%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 20% 99%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(190 100% 42%) 0%, hsl(210 100% 45%) 100%);
-    --gradient-data: linear-gradient(90deg, hsl(210 100% 28%) 0%, hsl(190 100% 42%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(221.2 83.2% 53.3%) 0%, hsl(262.1 83.3% 57.8%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 99%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(262.1 83.3% 57.8%) 0%, hsl(221.2 83.2% 53.3%) 100%);
 
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(220 80% 25% / 0.15);
-    --shadow-card: 0 4px 20px hsl(220 30% 10% / 0.08);
-    --shadow-hero: 0 25px 50px hsl(220 80% 25% / 0.3);
-
-    /* Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -90,7 +72,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -108,6 +90,7 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -125,107 +108,11 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 }
 
 @layer components {
-  /* Hero Components */
-  .hero-section {
-    background: var(--gradient-hero);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="0.5" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.1"/></svg>');
-    animation: float 20s ease-in-out infinite;
-  }
-
-  /* Glass Effect Cards */
-  .glass-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: var(--shadow-card);
-    transition: var(--transition-smooth);
-  }
-
-  .glass-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-glow);
-  }
-
-  /* Data Visualization Elements */
-  .data-viz-bg {
-    background: var(--gradient-data);
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
-  }
-
-  /* Skill Progress Bars */
-  .skill-bar {
-    background: var(--gradient-accent);
-    height: 6px;
-    border-radius: 3px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .skill-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    animation: skill-shine 2s ease-in-out infinite;
-  }
-
-  /* Project Cards */
-  .project-card {
-    background: var(--gradient-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: var(--transition-bounce);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transition: left 0.5s;
-  }
-
-  .project-card:hover::before {
-    left: 100%;
-  }
-
-  .project-card:hover {
-    transform: scale(1.02);
-    box-shadow: var(--shadow-glow);
-  }
-
-  /* AI Chatbot */
-  .chatbot-container {
-    background: var(--gradient-accent);
-    border-radius: var(--radius);
-    backdrop-filter: blur(20px);
-  }
-
   /* Text Gradients */
   .gradient-text {
     background: var(--gradient-hero);
@@ -233,20 +120,29 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 200%;
-    animation: gradient-shift 4s ease infinite;
+    animation: gradient-shift 8s ease infinite;
   }
 
-  /* Floating Animation */
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
+  /* Card Hover Effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .float-animation:nth-child(2) {
-    animation-delay: -2s;
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
   }
 
-  .float-animation:nth-child(3) {
-    animation-delay: -4s;
+  /* Button Gradients */
+  .btn-gradient {
+    background: var(--gradient-hero);
+    border: none;
+    color: white;
+  }
+
+  .btn-gradient:hover {
+    background: var(--gradient-accent);
+    transform: translateY(-1px);
   }
 }
 
@@ -255,28 +151,12 @@
   50% { background-position: 100% 50%; }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-10px) rotate(1deg); }
-  66% { transform: translateY(5px) rotate(-1deg); }
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes skill-shine {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
-  50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
-}
-
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink {
-  0%, 50% { border-color: transparent; }
-  51%, 100% { border-color: hsl(var(--primary)); }
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
