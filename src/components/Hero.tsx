@@ -104,7 +104,7 @@ const Hero = () => {
               className="hover:scale-110 transition-transform"
               asChild
             >
-              <a href="https://linkedin.com/in/ankita-kapoor" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/ankita-kapoor-b81354217/" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5" />
               </a>
             </Button>
